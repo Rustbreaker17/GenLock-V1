@@ -10,6 +10,7 @@ import ctypes
 import queue
 import speech_recognition as sr
 import pyttsx3
+import sys  # added for clean exit
 
 # -------- configuration --------
 LOCK_HOLD_SECONDS = 0.9        # how long gesture must be held (seconds)
@@ -73,6 +74,11 @@ def lock_workstation():
             print("Unknown platform - cannot lock automatically.")
     except Exception as e:
         print("Lock failed:", e)
+
+    # exit immediately after locking
+    print("System locked. Exiting program...")
+    speak("System locked. Exiting.")
+    sys.exit(0)
 
 # ---- Voice thread ----
 def voice_listener(stop_event):
@@ -219,7 +225,7 @@ def main():
                 print("Action from:", src, payload)
                 # optional audible confirmation
                 speak("Lock command received")
-                lock_workstation()
+                lock_workstation()  # exits after locking
             except queue.Empty:
                 pass
 
