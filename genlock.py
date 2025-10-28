@@ -102,7 +102,6 @@ def voice_listener(stop_event):
             except sr.WaitTimeoutError:
                 continue
         try:
-            # using google recognizer (online). For offline, use VOSK
             text = r.recognize_google(audio).lower()
             print("Heard (voice):", text)
             for phrase in VOICE_KEY_PHRASES:
