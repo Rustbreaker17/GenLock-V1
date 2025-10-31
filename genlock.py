@@ -10,12 +10,12 @@ import ctypes
 import queue
 import speech_recognition as sr
 import pyttsx3
-import sys  # added for clean exit
+import sys  
 
 # -------- configuration --------
 LOCK_HOLD_SECONDS = 0.9        # how long gesture must be held (seconds)
 GESTURE_FRAME_WINDOW = 10     # smoothing window (frames)
-VOICE_KEY_PHRASES = ["lock laptop", "lock my laptop", "lock computer", "secure", "lock it"]  # phrases
+VOICE_KEY_PHRASES = ["lock laptop", "lock my laptop", "lock computer", "secure", "lock it"]  # phrases to trigger lock
 CONFIRM_COUNTDOWN = 3         # seconds countdown before locking (set 0 to skip)
 DEBOUNCE_SECONDS = 3          # minimum seconds between locks
 # --------------------------------
